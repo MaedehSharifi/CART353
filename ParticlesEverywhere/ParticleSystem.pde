@@ -62,14 +62,14 @@ class ParticleSystem {
     particles.add(new Particle(new PVector(width/2, height/2)));
   }
 
-  // A function to apply a force to all Particles
+  // A function to apply a force to all Particles (except fire)
   void applyForce(PVector f) {
     for (Particle p : particles) {
       if ( p.type!=1) p.applyForce(f);
     }
   }
 
-  // A function to apply a Wind force to all Particles
+  // A function to apply a Wind force to Fire and Smoke Particles
   void applyWindForce(PVector f) {
     for (Particle p : particles) {
       if (p.type==0 || p.type==1) p.applyForce(f);
@@ -79,7 +79,7 @@ class ParticleSystem {
   void applyBucket(Bucket r) {
     // for each particle in this system
     for (Particle p : particles) {
-      // work out the absorb force for this repeller
+      // work out the absorb force of the bucket
       PVector force = r.absorb(p);        
       // apply that force to the particle
       p.applyForce(force);
