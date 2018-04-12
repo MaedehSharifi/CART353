@@ -18,7 +18,7 @@ class ParticleSystem {
     }
   }
 
-  //applying the repel force amongst the particles
+  //applying the repel force amongst the particles.
   void applyParticles() {
     // for every particle in this system
     for (Particle p: particles) {
